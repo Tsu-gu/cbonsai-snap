@@ -1,0 +1,32 @@
+name: cbonsai
+base: core24
+version: '1.4.2'
+summary: A bonsai tree generator, written
+description: |
+  A bonsai tree generator, written in C using ncurses. It intelligently creates, colors, and positions a bonsai tree, and is entirely configurable via CLI options-- see usage. There are 2 modes of operation: static (see finished bonsai tree), and live (see growth step-by-step).
+  
+  Cbonsai is always looking for ideas for improvement- feel free to open an issue if you've got an idea or a bug!
+
+grade: stable
+confinement: strict
+
+platforms:
+  amd64:
+  arm64:
+
+apps:
+  cbonsai:
+    command: usr/local/bin/cbonsai
+    completer: usr/local/share/bash-completion/completions/cbonsai
+    environment:
+      HOME: "$SNAP_USER_DATA"
+
+parts:
+  cbonsai:
+    plugin: make
+    source: https://gitlab.com/jallbrit/cbonsai
+    source-type: git
+    build-packages:
+      - libncursesw5-dev
+    stage-packages:
+      - libncursesw5-dev
