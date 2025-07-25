@@ -1,7 +1,7 @@
 name: cbonsai
 base: core24
 version: '1.4.2'
-summary: A bonsai tree generator, written
+summary: A bonsai tree generator, written in C
 description: |
   A bonsai tree generator, written in C using ncurses. It intelligently creates, colors, and positions a bonsai tree, and is entirely configurable via CLI options-- see usage. There are 2 modes of operation: static (see finished bonsai tree), and live (see growth step-by-step).
   
