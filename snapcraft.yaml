@@ -10,23 +10,33 @@ description: |
 grade: stable
 confinement: strict
 
+lint:
+  ignore:
+    - classic
+    
 platforms:
   amd64:
-  arm64:
+
 
 apps:
   cbonsai:
-    command: usr/local/bin/cbonsai
-    completer: usr/local/share/bash-completion/completions/cbonsai
+    command: usr/bin/cbonsai
+    completer: usr/share/bash-completion/completions/cbonsai
     environment:
       HOME: "$SNAP_USER_DATA"
+      XDG_DATA_DIR: "$SNAP_USER_COMMON"
+    plugs:
+      - desktop
+      - home
+   
 
 parts:
   cbonsai:
-    plugin: make
-    source: https://gitlab.com/jallbrit/cbonsai
-    source-type: git
-    build-packages:
-      - libncursesw5-dev
+    plugin: dump
+    source: .
     stage-packages:
       - libncursesw5-dev
+      - libncurses6
+    organize:
+      cbonsai: usr/bin/cbonsai
+      completions/bash/cbonsai.bash: usr/share/bash-completion/completions/cbonsai
