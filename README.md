@@ -1,3 +1,1 @@
-I couldn't get it to compile and not fail to launch so I compiled cbonsai and dumped it into the snap. Really not my proudest moment but it works
-
-https://snapcraft.io/cbonsai
+[![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/cbonsai)
